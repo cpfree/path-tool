@@ -1,0 +1,58 @@
+{
+	"name": "copypath",
+	"displayName": "copypath",
+	"description": "拷贝文件路径, 与vscode自带复制路径不同的是, 这个插件输出至粘贴板的是斜杠而不是反斜杠",
+	"version": "0.0.1",
+	"publisher": "CPFniliu",
+	"engines": {
+		"vscode": "^1.56.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:copypath.helloWorld"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "copypath.helloWorld",
+				"title": "Hello World"
+			}
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"when": "filesExplorerFocus",
+					"command": "copypath.helloWorld",
+					"alt": "markdown.showPreviewToSide"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.56.0",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.0.4",
+		"@types/node": "^12.11.7",
+		"eslint": "^7.19.0",
+		"@typescript-eslint/eslint-plugin": "^4.14.1",
+		"@typescript-eslint/parser": "^4.14.1",
+		"glob": "^7.1.6",
+		"mocha": "^8.2.1",
+		"typescript": "^4.1.3",
+		"vscode-test": "^1.5.0"
+	},
+	"dependencies": {
+		"copy-paste": "^1.3.0"
+	}
+}
